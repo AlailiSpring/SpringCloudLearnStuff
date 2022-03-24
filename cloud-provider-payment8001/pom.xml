@@ -54,6 +54,23 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
+        <!--scope五个选项
+        1、compile,编译打包皆有
+        2、provided,编译有，打包没有
+        3、runtime,运行时有，编译和打包都没有
+        4、test,测试时有,编译打包都没有
+        5、system,方便本地编译，与provided类似，必须提供地址
+        例如
+             <scope>system</scope>
+             <systemPath>${java.home}/../lib/tools.jar</systemPath>
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
         <!--包含了sleuth+zipkin;sleuth链路监控展现,P94所需依赖-->
  <!--       <dependency>
             <groupId>org.springframework.cloud</groupId>

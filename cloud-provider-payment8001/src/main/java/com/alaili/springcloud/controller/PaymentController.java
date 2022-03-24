@@ -4,10 +4,7 @@ import com.alaili.springcloud.entities.CommonResult;
 import com.alaili.springcloud.entities.Payment;
 import com.alaili.springcloud.service.PaymentService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -21,8 +18,9 @@ public class PaymentController {
     @Value("${server.port}")
     private String serverPort;
 
+    //加入@Request支持前台传递json到对象的转化
     @PostMapping("/payment/create")
-    public CommonResult<Payment> create(Payment payment) {
+    public CommonResult<Payment> create(@RequestBody Payment payment) {
         int result = service.create(payment);
         log.info("插入结果------" + result);
         int rstCode = result > 0 ? 200 : 400;
