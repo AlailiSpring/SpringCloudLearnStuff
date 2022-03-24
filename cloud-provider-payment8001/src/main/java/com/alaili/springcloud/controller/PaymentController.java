@@ -3,7 +3,6 @@ package com.alaili.springcloud.controller;
 import com.alaili.springcloud.entities.CommonResult;
 import com.alaili.springcloud.entities.Payment;
 import com.alaili.springcloud.service.PaymentService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@Slf4j
 public class PaymentController {
+
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(PaymentController.class);
 
     @Resource
     private PaymentService service;
-
     @Value("${server.port}")
     private String serverPort;
 
