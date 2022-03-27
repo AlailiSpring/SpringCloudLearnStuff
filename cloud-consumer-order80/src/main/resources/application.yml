@@ -5,3 +5,10 @@ spring:
     name: cloud-consumer-order80
 remoteinfo:
   remoteUrl: http://localhost:8001
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
