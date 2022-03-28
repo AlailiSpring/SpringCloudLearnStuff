@@ -10,3 +10,18 @@ eureka:
     fetchRegistry: true
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+ribbon:
+  # 指的是建立连接所用的时间,适用于网络状态正常的情况下,两端连接所用的时间
+  ReadTimeout: 5000
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 5000
+  #同一台实例的最大重试次数，不包括首次
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: false
+
+#加入Feign的日志级别
+logging:
+  level:
+    com.alaili.springcloud.config.FeignLogConfig: debug
