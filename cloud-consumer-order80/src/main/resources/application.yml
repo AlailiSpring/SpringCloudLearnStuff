@@ -4,7 +4,7 @@ spring:
   application:
     name: cloud-consumer-order80
 remoteinfo:
-  remoteUrl: http://localhost:8001
+  remoteUrl: http://cloud-payment-provider
 
 eureka:
   client:
