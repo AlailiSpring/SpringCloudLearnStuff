@@ -22,7 +22,8 @@ public class PaymentService {
 
     /**
      * 超时访问
-     * HystrixCommand:一旦调用服务方法失败并抛出了错误信息后,会自动调用@HystrixCommand标注好的fallbckMethod调用类中的指定方法
+     * HystrixCommand:一旦调用服务方法失败并抛出了错误信息后,
+     *                      会自动调用@HystrixCommand标注好的fallbckMethod调用类中的指定方法
      * execution.isolation.thread.timeoutInMilliseconds:线程超时时间3秒钟
      * @param id
      * @return
@@ -31,7 +32,6 @@ public class PaymentService {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
     })
     public String paymentInfo_TimeOut(Integer id) {
-        ///int age = 10 / 0;
         int timeNumber = 5;
         try {
             // 暂停5秒钟
