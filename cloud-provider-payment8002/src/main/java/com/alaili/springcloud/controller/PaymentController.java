@@ -22,7 +22,8 @@ public class PaymentController {
     @PostMapping("/payment/create")
     public CommonResult<Payment> create(@RequestBody Payment payment) {
         int result = service.create(payment);
-        log.info("插入结果------" + result);
+        log.info("当前端口为【" + serverPort+"】");
+        log.info("插入结果：" + result);
         int rstCode = result > 0 ? 200 : 400;
         String msg = result > 0 ? "插入成功！" : "插入失败！";
         return new CommonResult(rstCode, msg + serverPort, result);
@@ -31,7 +32,8 @@ public class PaymentController {
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
         Payment payment = service.getPaymentById(id);
-        log.info("-------------查询结果:[{}]", payment);
+        log.info("当前端口为【" + serverPort+"】");
+        log.info("查询结果:[{}]", payment);
         if (payment != null) {
             return new CommonResult(200, "查询成功,端口号: " + serverPort, payment);
         } else {
