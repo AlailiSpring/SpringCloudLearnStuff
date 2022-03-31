@@ -23,7 +23,7 @@ public class PaymentController {
     @PostMapping("/payment/create")
     public CommonResult<Payment> create(@RequestBody Payment payment) {
         int result = service.create(payment);
-        log.info("当前端口为【" + serverPort+"】");
+        log.info("当前端口为【" + serverPort + "】");
         log.info("插入结果：" + result);
         int rstCode = result > 0 ? 200 : 400;
         String msg = result > 0 ? "插入成功！" : "插入失败！";
@@ -33,7 +33,7 @@ public class PaymentController {
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
         Payment payment = service.getPaymentById(id);
-        log.info("当前端口为【" + serverPort+"】");
+        log.info("当前端口为【" + serverPort + "】");
         log.info("查询结果:[{}]", payment);
         if (payment != null) {
             return new CommonResult(200, "查询成功,端口号: " + serverPort, payment);
@@ -55,6 +55,7 @@ public class PaymentController {
     /**
      * 测试网关的After某一时间的Predicate配置，作为过滤条件
      * 类似的可以设计成为秒杀的限定条件
+     *
      * @return
      */
     @GetMapping("/payment/afterPredicateTest")
@@ -63,4 +64,12 @@ public class PaymentController {
         return serverPort;
     }
 
+    /**
+     * zipkin的测试入口
+     * @return
+     */
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin() {
+        return "Hi!this is message from zipkin server,nice to meet you!";
+    }
 }
