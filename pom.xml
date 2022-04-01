@@ -20,6 +20,7 @@
         <module>cloud-gateway-gateway9527</module>
         <module>cloud-alibaba-provider-payment9001</module>
         <module>cloud-alibaba-consumer-nacos-order83</module>
+        <module>cloud-alibaba-config-nacos-client3377</module>
     </modules>
     <!--表示当前为父工程-->
     <packaging>pom</packaging>
